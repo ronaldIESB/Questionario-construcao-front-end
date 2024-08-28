@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Desenvolvimento Front End</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .feedback.correct {
+            color: #2ecc71; /* Verde para respostas corretas */
+        }
+        .feedback.incorrect {
+            color: #e74c3c; /* Vermelho para respostas incorretas */
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4a90e2;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Questionário sobre Desenvolvimento Front End</h1>
+        <form id="questionnaire">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="id">Matrícula:</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+
+            <!-- Pergunta 1 -->
+            <div class="question">
+                <p><strong>1. Qual é a principal função do CSS?</strong></p>
+
+                <label for="css1">A) <input type="radio" id="css1" name="css" value="A">Gerenciar dados do servidor</label>
+                <label for="css2">B) <input type="radio" id="css2" name="css" value="B">Estruturar o conteúdo da página</label>
+                <label for="css3">C) <input type="radio" id="css3" name="css" value="C">Estilizar a aparência da página</label>
+                <label for="css4">D) <input type="radio" id="css4" name="css" value="D">Validar formulários</label>
+                <label for="css5">E) <input type="radio" id="css5" name="css" value="E">Interagir com o banco de dados</label>
+                <div id="feedback-css" class="feedback"></div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="question">
+                <p><strong>2. O que é o HTML?</strong></p>
+                
+                <label for="html1">A) <input type="radio" id="html1" name="html" value="A">Linguagem de marcação para estrutura de documentos</label>
+                <label for="html2">B) <input type="radio" id="html2" name="html" value="B">Linguagem de programação para lógica de aplicação</label>
+                <label for="html3">C) <input type="radio" id="html3" name="html" value="C">Framework para desenvolvimento web</label>
+                <label for="html4">D) <input type="radio" id="html4" name="html" value="D">Biblioteca para estilização de páginas</label>
+                <label for="html5">E) <input type="radio" id="html5" name="html" value="E">Ferramenta de design gráfico</label>
+                <div id="feedback-html" class="feedback"></div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="question">
+                <p><strong>3. Qual é a função do JavaScript no desenvolvimento front end?</strong></p>
+                
+                <label for="js1">A) <input type="radio" id="js1" name="js" value="A">Criar e gerenciar banco de dados</label>
+                <label for="js2">B) <input type="radio" id="js2" name="js" value="B">Realizar cálculos no servidor</label>
+                <label for="js3">C) <input type="radio" id="js3" name="js" value="C">Manipular o DOM e interagir com o usuário</label>
+                <label for="js4">D) <input type="radio" id="js4" name="js" value="D">Definir estilos de página</label>
+                <label for="js5">E) <input type="radio" id="js5" name="js" value="E">Validar a sintaxe de HTML</label>
+                <div id="feedback-js" class="feedback"></div>
+            </div>
+
+            <!-- Pergunta 4 (Certo ou Errado) -->
+            <div class="question">
+                <p><strong>4. O HTML é uma linguagem de programação?</strong></p>
+                <label for="html-true"><input type="radio" id="html-true" name="html-correct" value="true">Verdadeiro</label>
+                <label for="html-false"><input type="radio" id="html-false" name="html-correct" value="false">Falso</label>
+                <div id="feedback-html-correct" class="feedback"></div>
+            </div>
+
+            <!-- Pergunta 5 (Certo ou Errado) -->
+            <div class="question">
+                <p><strong>5. O CSS pode ser usado para criar animações?</strong></p>
+                <label for="css-true"><input type="radio" id="css-true" name="css-correct" value="true">Verdadeiro</label>
+                <label for="css-false"><input type="radio" id="css-false" name="css-correct" value="false">Falso</label>
+                <div id="feedback-css-correct" class="feedback"></div>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+      // Armazena as respostas selecionadas
+      let selectedAnswers = {
+          css: '',
+          html: '',
+          js: '',
+          'html-correct': '',
+          'css-correct': ''
+      };
+  
+      // Armazena o número de respostas corretas
+      let correctCount = 0;
+  
+      document.querySelectorAll('input[type="radio"]').forEach(input => {
+          input.addEventListener('change', function() {
+              const name = this.name;
+              const value = this.value;
+              selectedAnswers[name] = value;
+          });
+      });
+  
+      document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+          event.preventDefault(); // Impede o envio do formulário
+  
+          // Reseta o contador e o feedback
+          correctCount = 0;
+          const feedback = {
+              css: document.getElementById('feedback-css'),
+              html: document.getElementById('feedback-html'),
+              js: document.getElementById('feedback-js'),
+              'html-correct': document.getElementById('feedback-html-correct'),
+              'css-correct': document.getElementById('feedback-css-correct')
+          };
+  
+          // Pergunta 1
+          if (selectedAnswers.css === 'C') {
+              feedback.css.textContent = 'Correto!';
+              feedback.css.className = 'feedback correct';
+              correctCount++;
+          } else {
+              feedback.css.textContent = 'Incorreto. A resposta correta é C) Estilizar a aparência da página.';
+              feedback.css.className = 'feedback incorrect';
+          }
+  
+          // Pergunta 2
+          if (selectedAnswers.html === 'A') {
+              feedback.html.textContent = 'Correto!';
+              feedback.html.className = 'feedback correct';
+              correctCount++;
+          } else {
+              feedback.html.textContent = 'Incorreto. A resposta correta é A) Linguagem de marcação para estrutura de documentos.';
+              feedback.html.className = 'feedback incorrect';
+          }
+  
+          // Pergunta 3
+          if (selectedAnswers.js === 'C') {
+              feedback.js.textContent = 'Correto!';
+              feedback.js.className = 'feedback correct';
+              correctCount++;
+          } else {
+              feedback.js.textContent = 'Incorreto. A resposta correta é C) Manipular o DOM e interagir com o usuário.';
+              feedback.js.className = 'feedback incorrect';
+          }
+  
+          // Pergunta 4
+          if (selectedAnswers['html-correct'] === 'false') {
+              feedback['html-correct'].textContent = 'Correto!';
+              feedback['html-correct'].className = 'feedback correct';
+              correctCount++;
+          } else {
+              feedback['html-correct'].textContent = 'Incorreto. O HTML não é uma linguagem de programação.';
+              feedback['html-correct'].className = 'feedback incorrect';
+          }
+  
+          // Pergunta 5
+          if (selectedAnswers['css-correct'] === 'true') {
+              feedback['css-correct'].textContent = 'Correto!';
+              feedback['css-correct'].className = 'feedback correct';
+              correctCount++;
+          } else {
+              feedback['css-correct'].textContent = 'Incorreto. O CSS pode, sim, ser usado para criar animações.';
+              feedback['css-correct'].className = 'feedback incorrect';
+          }
+  
+          // Exibe o total de respostas corretas
+          const resultMessage = document.createElement('p');
+          resultMessage.textContent = `Você acertou ${correctCount} de 5 questões.`;
+          resultMessage.className = 'feedback';
+          document.querySelector('.container').appendChild(resultMessage);
+      });
+  </script>
+</body>
+</html>
